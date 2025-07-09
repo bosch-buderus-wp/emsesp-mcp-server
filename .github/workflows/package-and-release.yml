@@ -25,7 +25,6 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          with:
           files: |
             emsesp-mcp-server.dxt
           draft: false
