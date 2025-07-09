@@ -1,0 +1,53 @@
+{
+  "dxt_version": "0.1",
+  "name": "emsesp-mcp-server",
+  "display_name": "ems-esp",
+  "version": "1.0.0",
+  "description": "A Model-Context-Protocol (MCP) Server to interact with Bosch/Buderus heat pumps via EMS-ESP",
+  "author": {
+    "name": "Matthias Röckl",
+    "email": "mroeckl@users.noreply.github.com",
+    "url": "https://bosch-buderus-wp.github.io/"
+  },
+  "homepage": "https://bosch-buderus-wp.github.io/",
+  "documentation": "https://github.com/bosch-buderus-wp/emsesp-mcp-server",
+  "icon": "images/icon.jpg",
+  "screenshots": ["./images/claude-desktop_dhw-cop.png"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {}
+    }
+  },
+  "tools": [
+    {
+      "name": "get-statistics",
+      "description": "Energy, starts and runtime information"
+    },
+    {
+      "name": "get-temp-measured",
+      "description": "All thermometer measurements"
+    },
+    {
+      "name": "get-pump",
+      "description": "Information about PC0, PC1 and circulation pump"
+    },
+    {
+      "name": "get-state",
+      "description": "State information like heating active or current modulation"
+    },
+    {
+      "name": "get-setting",
+      "description": "Settings like set room temperature"
+    }
+  ],
+  "keywords": ["ems-esp", "Bosch", "Buderus", "heat pump", "heating"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bosch-buderus-wp/emsesp-mcp-server"
+  }
+}
