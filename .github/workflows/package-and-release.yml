@@ -18,9 +18,15 @@ jobs:
       - run: npm ci
       - run: npx @anthropic-ai/dxt pack
       - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-          files: emsesp-mcp-server.dxt
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          with:
+          files: |
+            emsesp-mcp-server.dxt
+          draft: false
+          prerelease: false
