@@ -1,0 +1,781 @@
+{
+  "tags": {
+    "statistics": {
+      "description": "All heat pump entities that provide statistics data, such as total energy input and output, number of compressor starts, or operating times, etc."
+    },
+    "energy": {
+      "description": "All heat pump entities that provide data on energy consumption, such as total energy input and output, or energy input/output for hot water preparation, or energy output of the electric auxiliary heater."
+    },
+    "runtimes": {
+      "description": "All heat pump entities that provide data on operating times, such as total runtime since commissioning, time with active operation, or operating times for hot water preparation."
+    },
+    "starts": {
+      "description": "All heat pump entities that provide data on compressor starts, such as the total number of starts, starts for hot water preparation, heating, and cooling."
+    },
+    "temperatures": {
+      "description": "All heat pump entities that provide temperature measurements or derived measured values, such as the damped outdoor temperature, or temperature settings. Temperature measurements include, for example, the flow temperature in the refrigeration circuit, primary circuit, or heating circuit, the air inlet temperature at the evaporator, or the outdoor temperature. Temperature settings include, for example, desired room temperature or the start temperature for domestic hot water."
+    },
+    "pumps": {
+      "description": "All heat pump entities that provide data on the installed pumps, such as the current flow rate of the primary circuit pump PC0 or the current modulation of the heating circuit pump PC1."
+    },
+    "states": {
+      "description": "All entities describing the current state of the heat pump, e.g., compressor operating state, valve position, etc."
+    },
+    "settings": {
+      "description": "All entities for heat pump settings, e.g., heating limit, desired room temperature, etc."
+    },
+    "eheater": {
+      "description": "All entities related to the electric auxiliary heater, e.g., energy consumption, current status of the heating element, etc."
+    }
+  },
+  "entities": {
+    "nrgtotal": {
+      "title": "Total heat energy generated for heating, cooling, and hot water",
+      "name": "nrgtotal",
+      "description": "Total heat energy generated for heating, cooling, and hot water - more accurate version of nrgsupptotal",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "prod-nrg"]
+    },
+    "dhw.nrg": {
+      "title": "Total heat energy generated for hot water",
+      "name": "nrg",
+      "description": "Total heat energy generated for hot water - more accurate version of nrgsupp",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "dhw", "prod-nrg"]
+    },
+    "nrgheat": {
+      "title": "Total generated heat energy for heating",
+      "name": "nrgheat",
+      "description": "Total heat energy generated for heating - more accurate version of nrgsuppheating",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heating", "prod-nrg"]
+    },
+    "nrgcool": {
+      "title": "Total energy generated for cooling",
+      "name": "nrgcool",
+      "description": "Total energy generated for cooling - more accurate version of nrgsuppcooling",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cooling", "prod-nrg"]
+    },
+    "metertotal": {
+      "title": "Total electrical energy used by the heat pump and auxiliary heater for heating, cooling, and hot water",
+      "name": "metertotal",
+      "description": "Total electrical energy used by the heat pump and Auxiliary heater for heating, cooling, and hot water - more accurate version of nrgconstotal",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cons-nrg"]
+    },
+    "metercomp": {
+      "title": "Total electrical energy used by the heat pump",
+      "name": "metercomp",
+      "description": "Total electrical energy used by the heat pump - more accurate version of nrgconstotal",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heatpump", "cons-nrg"]
+    },
+    "metereheat": {
+      "title": "Total electrical energy used by the auxiliary heater",
+      "name": "metereheat",
+      "description": "Total electrical energy used by the auxiliary heater - more accurate version of auxelecheatnrgconstotal",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "eheater", "cons-nrg"]
+    },
+    "meterheat": {
+      "title": "Total electrical energy used for heating",
+      "name": "meterheat",
+      "description": "Total electrical energy used for heating",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heating", "cons-nrg"]
+    },
+    "metercool": {
+      "title": "Total electrical energy used for cooling",
+      "name": "metercool",
+      "description": "Total electrical energy used for cooling",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cooling", "cons-nrg"]
+    },
+    "dhw.meter": {
+      "title": "Total electrical energy used for hot water",
+      "name": "meter",
+      "description": "Total electrical energy used for hot water",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "dhw", "cons-nrg"]
+    },
+    "nrgsupptotal": {
+      "title": "Total heat energy generated for heating, cooling, and hot water",
+      "name": "nrgsupptotal",
+      "description": "Total heat energy generated for heating, cooling, and hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "prod-nrg"]
+    },
+    "nrgsuppheating": {
+      "title": "Total heat energy generated for heating",
+      "name": "nrgsuppheating",
+      "description": "Total heat energy generated for heating (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heating", "prod-nrg"]
+    },
+    "dhw.nrgsupp": {
+      "title": "Total heat energy generated for hot water",
+      "name": "nrgsupp",
+      "description": "Total heat energy generated for hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "dhw", "prod-nrg"]
+    },
+    "nrgsuppcooling": {
+      "title": "Total heat energy generated for cooling",
+      "name": "nrgsuppcooling",
+      "description": "Total heat energy generated for cooling (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cooling", "prod-nrg"]
+    },
+    "nrgconstotal": {
+      "title": "Total electrical energy used for heating and hot water",
+      "name": "nrgconstotal",
+      "description": "Total electrical energy used for heating and hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cons-nrg"]
+    },
+    "nrgconscomptotal": {
+      "title": "Total electrical energy used by the heat pump for heating, cooling, and hot water",
+      "name": "nrgconscomptotal",
+      "description": "Total electrical energy used by the heat pump for heating, cooling, and hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heatpump", "cons-nrg"]
+    },
+    "nrgconscompheating": {
+      "title": "Total electrical energy used by the heat pump for heating",
+      "name": "nrgconscompheating",
+      "description": "Total electrical energy used by the heat pump for heating (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "heating", "cons-nrg"]
+    },
+    "dhw.nrgconscomp": {
+      "title": "Total electrical energy used by the heat pump for hot water",
+      "name": "nrgconscomp",
+      "description": "Total electrical energy used by the heat pump for hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "dhw", "cons-nrg"]
+    },
+    "nrgconscompcooling": {
+      "title": "Total electrical energy used by the heat pump for cooling",
+      "name": "nrgconscompcooling",
+      "description": "Total electrical energy used by the heat pump for cooling (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "cooling", "cons-nrg"]
+    },
+    "auxelecheatnrgconstotal": {
+      "title": "Total electrical energy used by the auxiliary heater for heating and hot water",
+      "name": "auxelecheatnrgconstotal",
+      "description": "Total electrical energy used by the auxiliary heater for heating and hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "eheater", "cons-nrg"]
+    },
+    "auxelecheatnrgconsheating": {
+      "title": "Total electrical energy used by the auxiliary heater for heating",
+      "name": "auxelecheatnrgconsheating",
+      "description": "Total electrical energy used by the auxiliary heater for heating (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "eheater", "heating", "cons-nrg"]
+    },
+    "dhw.auxelecheatnrgcons": {
+      "title": "Total electrical energy used by the auxiliary heater for hot water",
+      "name": "auxelecheatnrgcons",
+      "description": "Total electrical energy used by the auxiliary heater for hot water (without decimal places)",
+      "device": "boiler",
+      "tags": ["statistics", "energy", "eheater", "dhw", "cons-nrg"]
+    },
+    "hppower": {
+      "title": "Current power consumption of the heat pump (kW)",
+      "name": "hppower",
+      "description": "Current power consumption of the heat pump with one decimal place, e.g., 0.3 kW (Caution: very inaccurate)",
+      "device": "boiler",
+      "tags": ["statistics", "energy"]
+    },
+    "hpcurrpower": {
+      "title": "Current power consumption of the heat pump (W)",
+      "name": "hpcurrpower",
+      "description": "Current power consumption of the heat pump, e.g., 298 W",
+      "device": "boiler",
+      "tags": ["statistics", "energy"]
+    },
+    "outdoortemp": {
+      "title": "Outdoor temperature",
+      "name": "outdoortemp",
+      "description": "Outdoor temperature measured by outdoor thermometer",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "dampedoutdoortemp": {
+      "title": "Damped outdoor temperature",
+      "name": "dampedoutdoortemp",
+      "description": "Damped outdoor temperature",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "curflowtemp": {
+      "title": "Flow temperature after buffer tank (T0)",
+      "name": "curflowtemp",
+      "description": "Flow temperature after buffer tank (T0)",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "rettemp": {
+      "title": "Return temperature of the primary circuit",
+      "name": "rettemp",
+      "description": "Return temperature of the primary circuit leaving the indoor unit - identical to hptc0",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptc0": {
+      "title": "Primary circuit return temperature",
+      "name": "hptc0",
+      "description": "Primary circuit return temperature leaving the indoor unit",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptc1": {
+      "title": "Primary circuit supply temperature",
+      "name": "hptc1",
+      "description": "Primary circuit supply temperature entering the indoor unit",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptc3": {
+      "title": "Refrigerant temperature entering the condenser",
+      "name": "hptc3",
+      "description": "Refrigerant temperature entering the condenser",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptr1": {
+      "title": "Refrigerant temperature in the compressor",
+      "name": "hptr1",
+      "description": "Refrigerant temperature in the compressor",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptr3": {
+      "title": "Refrigerant temperature leaving the condenser",
+      "name": "hptr3",
+      "description": "Refrigerant temperature leaving the condenser",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptr4": {
+      "title": "Refrigerant temperature after the expansion valve",
+      "name": "hptr4",
+      "description": "Refrigerant temperature after the expansion valve",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptr5": {
+      "title": "Suction Gas Temperature",
+      "name": "hptr5",
+      "description": "Suction Gas Temperature",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptr6": {
+      "title": "Hot Gas Temperature",
+      "name": "hptr6",
+      "description": "Hot Gas Temperature",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hptl2": {
+      "title": "Air Temperature at the Evaporator Inlet",
+      "name": "hptl2",
+      "description": "Air Temperature at the Evaporator Inlet",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hppl1": {
+      "title": "Low Pressure Temperature",
+      "name": "hppl1",
+      "description": "Low Pressure Temperature - identical to hptr4",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hpph1": {
+      "title": "High Pressure Temperature",
+      "name": "hpph1",
+      "description": "High Pressure Temperature - identical to curflowtemp",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hpta4": {
+      "title": "Condensate Pan Temperature",
+      "name": "hpta4",
+      "description": "Condensate Pan Temperature",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hc1.targetflowtemp": {
+      "title": "Target flow temperature determined by the system",
+      "name": "targetflowtemp",
+      "description": "The target flow temperature determined by the system (with PV surplus, targetflowtemp = selflowtemp + pvraiseheat)",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "selflowtemp": {
+      "title": "Selected flow temperature",
+      "name": "selflowtemp",
+      "description": "Target flow temperature without increase by energy manager/PV",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "heatingtemp": {
+      "title": "Maximum flow temperature",
+      "name": "heatingtemp",
+      "description": "Maximum possible flow temperature, e.g., 75°C for CS6800i",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hc1.maxflowtemp": {
+      "title": "Maximum target flow temperature",
+      "name": "maxflowtemp",
+      "description": "Maximum flow temperature",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "hc1.minflowtemp": {
+      "title": "Minimum target flow temperature",
+      "name": "minflowtemp",
+      "description": "Minimum flow temperature",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "hc1.offsettemp": {
+      "title": "Flow temperature offset",
+      "name": "offsettemp",
+      "description": "Value by which the flow temperature should be manually raised",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "hc1.designtemp": {
+      "title": "Design temperature",
+      "name": "designtemp",
+      "description": "Target flow temperature at the standard outdoor temperature (Normaußentemperatur NAT)",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "minexttemp": {
+      "title": "Minimum outdoor temperature",
+      "name": "minexttemp",
+      "description": "Standard outdoor temperature (Normaußentemperatur NAT)",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "hc1.summertemp": {
+      "title": "Heating limit",
+      "name": "summertemp",
+      "description": "Damped outdoor temperature above which heating is no longer necessary",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "tempdiffheat": {
+      "title": "Temperature difference TC3/TC0 heating",
+      "name": "tempdiffheat",
+      "description": "Target temperature difference between the flow (TC3) and return (TC0) of the primary circuit during heating",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "tempdiffcool": {
+      "title": "Temperature difference TC3/TC0 cooling",
+      "name": "tempdiffcool",
+      "description": "Target temperature difference between the flow (TC3) and return (TC0) of the primary circuit during cooling",
+      "device": "boiler",
+      "tags": ["temperatures"]
+    },
+    "hc1.seltemp": {
+      "title": "Desired room temperature",
+      "name": "seltemp",
+      "description": "Desired room temperature",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "hc1.manualtemp": {
+      "title": "Manually set room temperature",
+      "name": "manualtemp",
+      "description": "Manually set room temperature - identical to seltemp when mode=Manual",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "intoffset": {
+      "title": "Room temperature offset",
+      "name": "intoffset",
+      "description": "Room temperature offset by which seltemp should be corrected",
+      "device": "thermostat",
+      "tags": ["temperatures"]
+    },
+    "dhw.settemp": {
+      "title": "Current stop temperature in the currently active hot water mode",
+      "name": "settemp",
+      "description": "Current stop temperature in the currently active hot water mode",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.curtemp2": {
+      "title": "Currently measured hot water temperature in the hot water tank",
+      "name": "curtemp2",
+      "description": "Currently measured hot water temperature in the hot water tank - identical to hptw1",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "hptw1": {
+      "title": "Currently measured hot water temperature in the hot water tank (lower measuring point)",
+      "name": "hptw1",
+      "description": "Currently measured hot water temperature in the hot water tank (lower measuring point) - identical to curtemp2",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.curtemp": {
+      "title": "Currently measured hot water temperature in the hot water tank (upper optional measuring point)",
+      "name": "curtemp",
+      "description": "Currently measured hot water temperature in the hot water tank (upper optional measuring point) if installed, otherwise identical to hptw1",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.comfdiff": {
+      "title": "Hot water comfort differential temperature",
+      "name": "comfdiff",
+      "description": "Charging delta in comfort mode, which increases the flow temperature",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.ecodiff": {
+      "title": "Hot water ECO differential temperature",
+      "name": "ecodiff",
+      "description": "Charging delta in eco mode, which increases the flow temperature",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.ecoplusdiff": {
+      "title": "Hot water ECO+ differential temperature",
+      "name": "ecoplusdiff",
+      "description": "Charging delta in Eco+ mode, which increases the flow temperature",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.comfstop": {
+      "title": "Hot water comfort stop temp.",
+      "name": "comfstop",
+      "description": "Stop temperature in comfort mode at which hot water preparation stops",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.ecostop": {
+      "title": "Hot water ECO stop temp.",
+      "name": "ecostop",
+      "description": "Stop temperature in Eco mode at which hot water preparation stops",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.ecoplusstop": {
+      "title": "Hot water ECO+ stop temp.",
+      "name": "ecoplusstop",
+      "description": "Stop temperature in Eco+ mode at which hot water preparation stops is terminated",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.seltempsingle": {
+      "title": "Hot water single-load temperature",
+      "name": "seltempsingle",
+      "description": "Stop temperature for extra DHW",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.disinfectiontemp": {
+      "title": "Hot water disinfection temperature",
+      "name": "disinfectiontemp",
+      "description": "Stop temperature for hot water disinfection",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.seltemp": {
+      "title": "Hot water selected temperature",
+      "name": "seltemp",
+      "description": "Start temperature in Comfort mode at which hot water preparation begins",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.seltemplow": {
+      "title": "Hot water selected lower temperature",
+      "name": "seltemplow",
+      "description": "Starting temperature in Eco mode at which hot water preparation begins",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "dhw.tempecoplus": {
+      "title": "Hot water selected ECO+ temperature",
+      "name": "tempecoplus",
+      "description": "Starting temperature in Eco+ mode at which hot water preparation begins",
+      "device": "boiler",
+      "tags": ["temperatures", "dhw"]
+    },
+    "heatingpump": {
+      "title": "Status of primary circuit pump PC0",
+      "name": "heatingpump",
+      "description": "ON when the primary circuit pump PC0 is running",
+      "device": "boiler",
+      "tags": ["pumps", "pc0"]
+    },
+    "hpcircspd": {
+      "title": "Current modulation of primary circuit pump PC0",
+      "name": "hpcircspd",
+      "description": "Current modulation of primary circuit pump PC0 - identical to heatingpumpmod",
+      "device": "boiler",
+      "tags": ["pumps", "pc0"]
+    },
+    "heatingpumpmod": {
+      "title": "Percentage power of primary circuit pump PC0",
+      "name": "heatingpumpmod",
+      "description": "Percentage power of primary circuit pump PC0",
+      "device": "boiler",
+      "tags": ["pumps", "pc0"]
+    },
+    "pc0flow": {
+      "title": "Flow rate/volume flow of primary circuit pump PC0",
+      "name": "pc0flow",
+      "description": "Flow rate/volume flow of the primary circuit pump PC0 (unfortunately, no value at lower power)",
+      "device": "boiler",
+      "tags": ["pumps", "pc0"]
+    },
+    "pc1flow": {
+      "title": "Flow rate/volume flow of the heating circuit pump PC1",
+      "name": "pc1flow",
+      "description": "Flow rate/volume flow of the heating circuit pump PC1",
+      "device": "boiler",
+      "tags": ["pumps", "pc1"]
+    },
+    "pc1on": {
+      "title": "Status of the heating circuit pump PC1",
+      "name": "pc1on",
+      "description": "ON when the heating circuit pump PC1 is running",
+      "device": "boiler",
+      "tags": ["pumps", "pc1"]
+    },
+    "hpsetdiffpress": {
+      "title": "Set pressure of the heating circuit pump PC1",
+      "name": "hpsetdiffpress",
+      "description": "Set pressure of the heating circuit pump PC1",
+      "device": "boiler",
+      "tags": ["pumps", "pc1"]
+    },
+    "dhw.circpump": {
+      "title": "DHW circulation pump status",
+      "name": "circpump",
+      "description": "ON if the DHW circulation pump should be controlled via the system",
+      "device": "boiler",
+      "tags": ["pumps", "circ"]
+    },
+    "dhw.circmode": {
+      "title": "Setting the running frequency of the DHW circulation pump",
+      "name": "circmode",
+      "description": "Setting the running frequency, e.g., 3 x 3 minutes per hour",
+      "device": "boiler",
+      "tags": ["pumps", "circ"]
+    },
+    "dhw.circ": {
+      "title": "Status DHW circulation pump",
+      "name": "circ",
+      "description": "ON when the DHW circulation pump is currently running",
+      "device": "boiler",
+      "tags": ["pumps", "circ"]
+    },
+    "heatingactive": {
+      "title": "Heating mode status",
+      "name": "heatingactive",
+      "description": "ON when the system is currently in heating mode",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "tapwateractive": {
+      "title": "Hot water mode status",
+      "name": "tapwateractive",
+      "description": "ON when the system is currently in hot waterwater operation",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "curburnpow": {
+      "title": "Current modulation (relative power) of the compressor",
+      "name": "curburnpow",
+      "description": "Current modulation (relative power) of the compressor - identical to hpcompspd",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "hpcompspd": {
+      "title": "Current modulation (relative power) of the compressor",
+      "name": "hpcompspd",
+      "description": "Current modulation (relative power) of the compressor",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "hpcompon": {
+      "title": "Compressor status",
+      "name": "hpcompon",
+      "description": "ON when the compressor is currently running",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "hpactivity": {
+      "title": "Current compressor activity",
+      "name": "hpactivity",
+      "description": "Current compressor activity: “none”, “heating”, “cooling”, “hot water”, “pool”, “unknown”, “defrosting”",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "hp4way": {
+      "title": "Current position of the 4-way valve in the refrigeration circuit",
+      "name": "hp4way",
+      "description": "Current position of the 4-way valve in the refrigeration circuit: “cooling & defrosting” or “heating & hot water”",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "hpea0": {
+      "title": "Condensate pan heater status",
+      "name": "hpea0",
+      "description": "ON when the condensate tray heater is currently active",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "syspress": {
+      "title": "Water pressure in the heating circuit",
+      "name": "syspress",
+      "description": "Water pressure in the heating circuit. Only CS5800/6800i & WLW176/186",
+      "device": "boiler",
+      "tags": ["states"]
+    },
+    "dhw.charging": {
+      "title": "Hot water mode status",
+      "name": "charging",
+      "description": "ON during hot water mode, otherwise OFF",
+      "device": "boiler",
+      "tags": ["states", "dhw"]
+    },
+    "dhw.3wayvalve": {
+      "title": "Position of the 3-way valve",
+      "name": "3wayvalve",
+      "description": "ON during hot water operation, otherwise OFF - identical to RWem hp3way",
+      "device": "boiler",
+      "tags": ["states", "dhw"]
+    },
+    "auxheaterstatus": {
+      "title": "Current relative output of the auxiliary heater",
+      "name": "auxheaterstatus",
+      "description": "Current relative output of the auxiliary heater",
+      "device": "boiler",
+      "tags": ["states", "eheater"]
+    },
+    "uptimetotal": {
+      "title": "Total system runtime",
+      "name": "uptimetotal",
+      "description": "Total system runtime, including standby",
+      "device": "boiler",
+      "tags": ["statistics", "runtimes"]
+    },
+    "uptimecontrol": {
+      "title": "Total system operating time in heating, cooling, or hot water mode",
+      "name": "uptimecontrol",
+      "description": "Total operating time of the system in heating, cooling, or hot water mode (excluding standby)",
+      "device": "boiler",
+      "tags": ["statistics", "runtimes"]
+    },
+    "uptimecompheating": {
+      "title": "Total operating time of the system in heating mode",
+      "name": "uptimecompheating",
+      "description": "Total operating time of the system in heating mode (excluding standby)",
+      "device": "boiler",
+      "tags": ["statistics", "runtimes"]
+    },
+    "uptimecompcooling": {
+      "title": "Total operating time of the system in cooling mode",
+      "name": "uptimecompcooling",
+      "description": "Total operating time of the system in cooling mode (excluding standby)",
+      "device": "boiler",
+      "tags": ["statistics", "runtimes"]
+    },
+    "dhw.uptimecomp": {
+      "title": "Total system operating time in hot water mode",
+      "name": "uptimecomp",
+      "description": "Total system operating time in hot water mode (excluding standby)",
+      "device": "boiler",
+      "tags": ["statistics", "runtimes"]
+    },
+    "totalcompstarts": {
+      "title": "Total number of compressor starts",
+      "name": "totalcompstarts",
+      "description": "Total number of compressor starts",
+      "device": "boiler",
+      "tags": ["statistics", "starts"]
+    },
+    "heatingstarts": {
+      "title": "Number of compressor starts for heating mode",
+      "name": "heatingstarts",
+      "description": "Number of compressor starts for heating mode",
+      "device": "boiler",
+      "tags": ["statistics", "starts"]
+    },
+    "coolingstarts": {
+      "title": "Number of compressor starts for cooling mode",
+      "name": "coolingstarts",
+      "description": "Number of compressor starts for cooling mode",
+      "device": "boiler",
+      "tags": ["statistics", "starts"]
+    },
+    "dhw.startshp": {
+      "title": "Number of compressor starts for hot water mode",
+      "name": "startshp",
+      "description": "Number of compressor starts for hot water mode",
+      "device": "boiler",
+      "tags": ["statistics", "starts"]
+    },
+    "mandefrost": {
+      "title": "Start defrost",
+      "name": "mandefrost",
+      "description": "Starting defrost",
+      "isWritable": true,
+      "value": true,
+      "device": "boiler",
+      "tags": ["trigger"]
+    },
+    "dhw.disinfecting": {
+      "title": "Start hot water disinfection",
+      "name": "disinfecting",
+      "description": "Starting hot water disinfection",
+      "isWritable": true,
+      "value": true,
+      "device": "boiler",
+      "tags": ["trigger"]
+    },
+    "dhw.onetime": {
+      "title": "Start extra hot water",
+      "name": "onetime",
+      "description": "Starting extra hot water",
+      "isWritable": true,
+      "value": true,
+      "device": "boiler",
+      "tags": ["trigger"]
+    },
+    "damping": {
+      "title": "Outdoor temperature damping status",
+      "name": "damping",
+      "description": "ON if the outdoor temperature should be damped - inertia adjustable via building",
+      "device": "thermostat",
+      "tags": ["settings"]
+    },
+    "building": {
+      "title": "Strength of outdoor temperature damping",
+      "name": "building",
+      "description": "Strength of outdoor temperature damping: [Light|Medium|Heavy] - (De-)activation via damping",
+      "device": "thermostat",
+      "tags": ["settings"]
+    },
+    "pvenabledhw": {
+      "title": "Increase in the DHW temperature when there is PV surplus",
+      "name": "pvenabledhw",
+      "description": "Increase in the DHW temperature when there is PV surplus",
+      "device": "thermostat",
+      "tags": ["settings"]
+    }
+  }
+}

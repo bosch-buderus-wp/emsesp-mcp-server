@@ -1,0 +1,46 @@
+{
+  "name": "emsesp-mcp-server",
+  "version": "1.0.0",
+  "description": "A Model-Context-Protocol (MCP) Server to interact with Bosch/Buderus heat pumps via EMS-ESP",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc",
+    "start": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node src/index.ts",
+    "dev": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node src/index.ts",
+    "debug": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node --inspect src/index.ts",
+    "format": "npx prettier --write .",
+    "lint": "eslint . --ext .js,.ts,.mjs,.cjs,.mts,.cts"
+  },
+  "keywords": [
+    "ems-esp",
+    "Bosch",
+    "Buderus",
+    "heat pump",
+    "heating"
+  ],
+  "author": "Matthias Röckl",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.1",
+    "@types/node": "^22.15.30",
+    "dotenv": "^16.5.0",
+    "ts-node": "^10.9.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "zod": "^3.25.56"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.33.1",
+    "vitest": "^3.2.2"
+  }
+}
