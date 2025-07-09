@@ -11,7 +11,6 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import EmsEspClient from "./ems-esp/ems-esp-client.js";
 import { EntityToolRegistrar } from "./tools/entity-tool-registrar.js";
 import logger from "./logger.js";
-import { BoschBuderusWpResourceRegistrar } from "./resources/bosch-buderus-wp-resource-registrar.js";
 
 // Start the server
 startServer().catch((err) => {
@@ -29,18 +28,12 @@ export async function startServer() {
     version: "1.0.0",
   });
 
-  registerResources(server);
   registerTools(server, emsEspClient);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
   logger.info("EMS-ESP MCP Server running with stdio transport...");
   return server;
-}
-
-async function registerResources(server: McpServer) {
-  const bbwpRegistrar = new BoschBuderusWpResourceRegistrar(server);
-  bbwpRegistrar.register();
 }
 
 async function registerTools(server: McpServer, emsEspClient: EmsEspClient) {
