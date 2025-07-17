@@ -36,10 +36,12 @@ English:
 2. Open `Settings` in Claude Desktop
 3. Go to `Extensions` and drag the DXT file into the window
 4. Press `Install`
+5. Change the URL of your EMS-ESP gateway if necessary
+6. Close the window and start chatting with your heat pump 💬
 
 ### Manual installation
 
-Go to the settings file of your LLM Client, for instance, .vscode/mcp.json for Github Copilot, and add the following configuration:
+Go to the settings file of your LLM Client, for instance .vscode/mcp.json for Github Copilot, and add the following configuration:
 
 ```
 "emsesp": {
@@ -48,7 +50,10 @@ Go to the settings file of your LLM Client, for instance, .vscode/mcp.json for G
   "args": [
     "-y",
     "github:bosch-buderus-wp/emsesp-mcp-server"
-  ]
+  ],
+  "env": {
+    "EMS_ESP_URL": "http://ems-esp"
+  }
 }
 ```
 

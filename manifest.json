@@ -13,13 +13,23 @@
   "documentation": "https://github.com/bosch-buderus-wp/emsesp-mcp-server",
   "icon": "images/icon.jpg",
   "screenshots": ["./images/claude-desktop_dhw-cop.png"],
+  "user_config": {
+    "ems_esp_url": {
+      "type": "string",
+      "title": "EMS-ESP URL",
+      "description": "The URL of your EMS-ESP gateway, e.g. 'http://ems-esp' or 'http://ems-esp.local' or 'http://192.168.1.10'",
+      "default": "http://ems-esp"
+    }
+  },
   "server": {
     "type": "node",
     "entry_point": "dist/index.js",
     "mcp_config": {
       "command": "node",
       "args": ["${__dirname}/dist/index.js"],
-      "env": {}
+      "env": {
+        "EMS_ESP_URL": "${user_config.ems_esp_url}"
+      }
     }
   },
   "tools": [
@@ -28,20 +38,24 @@
       "description": "Energy, starts and runtime information"
     },
     {
-      "name": "get-temp-measured",
-      "description": "All thermometer measurements"
+      "name": "get-temperatures",
+      "description": "All temperature measurements"
     },
     {
-      "name": "get-pump",
-      "description": "Information about PC0, PC1 and circulation pump"
-    },
-    {
-      "name": "get-state",
+      "name": "get-states",
       "description": "State information like heating active or current modulation"
     },
     {
-      "name": "get-setting",
+      "name": "get-settings",
       "description": "Settings like set room temperature"
+    },
+    {
+      "name": "get-pumps",
+      "description": "Information about PC0, PC1 and circulation pump"
+    },
+    {
+      "name": "get-eheater",
+      "description": "Information about energy consumption, runtime, status, etc. of your electrical aux heater"
     }
   ],
   "keywords": ["ems-esp", "Bosch", "Buderus", "heat pump", "heating"],
