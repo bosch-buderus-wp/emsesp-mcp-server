@@ -1,12 +1,16 @@
 {
   "name": "emsesp-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Model-Context-Protocol (MCP) Server to interact with Bosch/Buderus heat pumps via EMS-ESP",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "type": "module",
+  "bin": {
+    "emsesp-mcp-server": "./dist/index.js"
+  },
   "scripts": {
     "test": "vitest run",
     "build": "tsc",
+    "prepare": "npm run build",
     "start": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node src/index.ts",
     "dev": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node src/index.ts",
     "debug": "NODE_OPTIONS='--no-warnings --loader ts-node/esm' node --inspect src/index.ts",

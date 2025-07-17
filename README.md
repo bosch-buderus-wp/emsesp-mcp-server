@@ -28,15 +28,18 @@ English:
 - How much electricity is my heat pump currently using?
 - What is the current COP (Coefficient of Performance) for hot water preparation?
 
-German:
-
-- Läuft gerade die Warmwasseraufbereitung?
-- Wie ist die aktuelle Außentemperatur?
-- Wie warm ist das Brauchwasser gerade?
-- Wie viel Strom benötigt meine Wärmepumpe im Moment?
-- Wie hoch ist meine Arbeitszahl der Warmwasseraufbereitung?
-
 ## ✍️ Integration in LLM Client
+
+### Install in Claude Desktop App with DXT file
+
+1. Download latest [emsesp-mcp-server.dxt](https://github.com/bosch-buderus-wp/emsesp-mcp-server/releases/latest/download/emsesp-mcp-server.dxt) file
+2. Open `Settings` in Claude Desktop
+3. Go to `Extensions` and drag the DXT file into the window
+4. Press `Install`
+
+### Manual installation
+
+Go to the settings file of your LLM Client, for instance, .vscode/mcp.json for Github Copilot, and add the following configuration:
 
 ```
 "emsesp": {
@@ -44,8 +47,7 @@ German:
   "command": "npx",
   "args": [
     "-y",
-    "tsx",
-    "emsesp-mcp-server"
+    "github:bosch-buderus-wp/emsesp-mcp-server"
   ]
 }
 ```

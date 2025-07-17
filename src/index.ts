@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * EMS-ESP MCP Server
  *
