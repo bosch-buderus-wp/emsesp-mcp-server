@@ -15,7 +15,7 @@ class EntityToolRegistrar {
     this.tagsConfig = loadTagsConfig();
   }
 
-  register(tag: string) {
+  register(tag: string): void {
     const tagName = `get-${tag}`;
     const tagDescription = this.tagsConfig?.[tag]?.description || `Get all entities with tag '${tag}'`;
     // Precompute filteredEntities, entityNameSet, and entityConfigMap once per registration (not per request)

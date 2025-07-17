@@ -42,7 +42,12 @@ class EmsEspClient {
   private getValidatedBaseUrl(): URL {
     const emsEspUrl = process.env.EMS_ESP_URL || "http://ems-esp";
     try {
-      return new URL(emsEspUrl);
+      const url = new URL(emsEspUrl);
+      // Validate URL protocol
+      if (!["http:", "https:"].includes(url.protocol)) {
+        throw new Error(`Invalid protocol: ${url.protocol}. Must be http: or https:`);
+      }
+      return url;
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : String(err);
       logger.error(`EMS_ESP_URL environment variable is not a valid URL: ${emsEspUrl}. Error: ${errorMessage}`);

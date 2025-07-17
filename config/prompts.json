@@ -1,0 +1,28 @@
+{
+  "show-dhw-settings": {
+    "title": "Domestic hot water settings",
+    "description": "Shows the settings for domestic hot water preparation in table format",
+    "messages": [
+      {
+        "role": "user",
+        "content": {
+          "type": "text",
+          "text": "Show me a matrix for the domestic hot water (dhw) settings of my heatpump via ems-esp-mcp. Show start temperatures, stop temperatures and differential temperatures as columns, and as rows use eco, eco+, comfort, disinfection and onetime."
+        }
+      }
+    ]
+  },
+  "show-heat-curve": {
+    "title": "Heat curve",
+    "description": "Shows the configured heat curve as a graph",
+    "messages": [
+      {
+        "role": "user",
+        "content": {
+          "type": "text",
+          "text": "Show the heat curve with the following elements in a graph with the outside temperature on the x-axis and the target flow temperature on the y-axis and the following points defining the curve:\n - (minexttemp / designtemp)\n - (summertemp / minflowtemp)\nAdditionally, show as a horizontal line the maxflowtemp"
+        }
+      }
+    ]
+  }
+}

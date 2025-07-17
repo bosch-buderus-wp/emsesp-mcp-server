@@ -2,7 +2,7 @@
   "dxt_version": "0.1",
   "name": "emsesp-mcp-server",
   "display_name": "ems-esp",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "A Model-Context-Protocol (MCP) Server to interact with Bosch/Buderus heat pumps via EMS-ESP",
   "author": {
     "name": "Matthias Röckl",
@@ -56,6 +56,18 @@
     {
       "name": "get-eheater",
       "description": "Information about energy consumption, runtime, status, etc. of your electrical aux heater"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "DHW settings",
+      "description": "Shows the settings for domestic hot water preparation in table format",
+      "text": "Show me a matrix for the domestic hot water (dhw) settings of my heatpump via ems-esp-mcp. Show start temperatures, stop temperatures and differential temperatures as columns, and as rows use eco, eco+, comfort, disinfection and onetime."
+    },
+    {
+      "name": "Heat curve",
+      "description": "Shows the configured heat curve as a graph",
+      "text": "Show the heat curve with the following elements in a graph with the outside temperature on the x-axis and the target flow temperature on the y-axis and the following points defining the curve:\n - (minexttemp / designtemp)\n - (summertemp / minflowtemp)\nAdditionally, show as a horizontal line the maxflowtemp"
     }
   ],
   "keywords": ["ems-esp", "Bosch", "Buderus", "heat pump", "heating"],

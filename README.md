@@ -6,6 +6,8 @@
 
 ![](https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif)
 
+![](https://i.ibb.co/QRfSSMw/Claude-show-heat-curve.gif)
+
 ## 📔 Table of Contents
 
 - [About](#-about)

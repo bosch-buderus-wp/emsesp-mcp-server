@@ -11,6 +11,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import EmsEspClient from "./ems-esp/ems-esp-client.js";
 import { EntityToolRegistrar } from "./tools/entity-tool-registrar.js";
+import { PromptRegistrar } from "./prompts/prompt-registrar.js";
 import logger from "./logger.js";
 
 // Start the server
@@ -30,6 +31,7 @@ export async function startServer() {
   });
 
   registerTools(server, emsEspClient);
+  registerPrompts(server);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -57,6 +59,30 @@ async function registerTools(server: McpServer, emsEspClient: EmsEspClient) {
       logger.info(`Successfully registered tool for tag ${tag}`);
     } catch (error) {
       logger.error(`Failed to register tool for tag '${tag}':`, error);
+    }
+  }
+}
+
+async function registerPrompts(server: McpServer) {
+  const envPrompts = process.env.PROMPTS || "show-dhw-settings,show-heat-curve";
+  const validPromptNames: string[] = envPrompts
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean);
+  logger.info(`Using prompts from PROMPTS: ${validPromptNames.join(", ")}`);
+
+  const promptRegistrar = new PromptRegistrar(server);
+  for (const name of validPromptNames) {
+    if (typeof name !== "string" || !name.match(/^[a-z0-9_-]+$/)) {
+      logger.warn(
+        `Skipping invalid prompt name '${name}': must contain only lowercase letters, numbers, underscores, and hyphens`,
+      );
+      continue;
+    }
+    try {
+      promptRegistrar.register(name);
+    } catch (error) {
+      logger.error(`Failed to register prompt for name '${name}':`, error);
     }
   }
 }
