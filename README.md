@@ -4,9 +4,17 @@
 
 ---
 
-![](https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif)
+<div align="center">
+  <img src="https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif" alt="Get dhw temperature and COP of preparation" />
+  <p>Get dhw temperature and COP of preparation</p>
+</div>
 
-![](https://i.ibb.co/QRfSSMw/Claude-show-heat-curve.gif)
+---
+
+<div align="center">
+  <img src="https://i.ibb.co/QRfSSMw/Claude-show-heat-curve.gif" alt="Get graph of configured heat curve" />
+  <p>Get graph of configured heat curve</p>
+</div>
 
 ## 📔 Table of Contents
 
