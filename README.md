@@ -6,13 +6,13 @@
 
 <div align="center">
   <img src="https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif" alt="Get dhw temperature and COP of preparation" />
-  <p>Get dhw temperature and COP of preparation</p>
+  <p>Get hot water temperature and COP of preparation</p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="https://i.ibb.co/QRfSSMw/Claude-show-heat-curve.gif" alt="Get graph of configured heat curve" />
+  <img src="https://i.ibb.co/B5NnzNpX/Claude-show-heat-curve-smaller.gif" alt="Get graph of configured heat curve" />
   <p>Get graph of configured heat curve</p>
 </div>
 
