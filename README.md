@@ -30,13 +30,18 @@ With this **Model Context Protocol (MCP)** server, you can integrate your **Bosc
 
 This enables prompts like:
 
-English:
+- _Is hot water preparation running right now?_
+- _What is the current outdoor temperature?_
+- _How warm is the domestic hot water right now?_
+- _How much electricity is my heat pump currently using?_
+- _What is the current COP (Coefficient of Performance) for hot water preparation?_
 
-- Is hot water preparation running right now?
-- What is the current outdoor temperature?
-- How warm is the domestic hot water right now?
-- How much electricity is my heat pump currently using?
-- What is the current COP (Coefficient of Performance) for hot water preparation?
+The LLM will select the necessary [Tools](https://modelcontextprotocol.io/docs/concepts/tools) provided by MCP server to answer the question.
+
+Or simply use the built-in [Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided by the MCP server:
+
+- `/show-dhw-settings` to get all settings for domestic hot water preparation in table format
+- `/show-heat-curve` to show the configured heat curve as a graph
 
 ## ✍️ Integration in LLM Client
 
