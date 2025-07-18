@@ -12,7 +12,7 @@
 ---
 
 <div align="center">
-  <img src="https://i.ibb.co/B5NnzNpX/Claude-show-heat-curve-smaller.gif" alt="Get graph of configured heat curve" />
+  <img src="https://i.ibb.co/NdYDgCPy/Claude-show-heat-curve-small.gif" alt="Get graph of configured heat curve" />
   <p>Get graph of configured heat curve</p>
 </div>
 
