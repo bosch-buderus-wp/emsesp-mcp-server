@@ -1,6 +1,12 @@
-<h1 align="center">EMS-ESP MCP Server</h1>
+<div align="center">
+  <img src="images/logo.png" alt="Logo" width="100" height="100">
+  <h2>MCP Server for Bosch/Buderus heat pumps</h2>
+  <p>LLM-powered chat for your heat pump</p>
 
-<p align="center">MCP server for Bosch/Buderus heat pumps</p>
+[![Latest Release](https://img.shields.io/github/v/release/bosch-buderus-wp/emsesp-mcp-server?label=Release)](https://github.com/bosch-buderus-wp/emsesp-mcp-server/releases/latest)
+[![Tests](https://img.shields.io/github/actions/workflow/status/bosch-buderus-wp/emsesp-mcp-server/build-and-test.yml?branch=main&label=Tests)](https://github.com/bosch-buderus-wp/emsesp-mcp-server/actions/workflows/build-and-test.yml)
+
+</div>
 
 ---
 
@@ -26,9 +32,9 @@
 
 ## 🚀 About
 
-With this **Model Context Protocol (MCP)** server, you can integrate your **Bosch CS5800/6800i or Buderus WLW176/186i heat pump** into a [Large Language Model (LLM) client](https://modelcontextprotocol.io/clients) such as [Claude Desktop](https://claude.ai/download).
+With this **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)** server, you can integrate your **Bosch CS5800/6800i or Buderus WLW176/186i heat pump** via [ems-esp](https://bosch-buderus-wp.github.io/docs/smarthome/) into a [Large Language Model (LLM) Application](https://modelcontextprotocol.io/clients) such as [Claude Desktop](https://claude.ai/download).
 
-This enables prompts like:
+Then shoot your prompts like so:
 
 - _Is hot water preparation running right now?_
 - _What is the current outdoor temperature?_
@@ -36,12 +42,13 @@ This enables prompts like:
 - _How much electricity is my heat pump currently using?_
 - _What is the current COP (Coefficient of Performance) for hot water preparation?_
 
-The LLM will select the necessary [Tools](https://modelcontextprotocol.io/docs/concepts/tools) provided by MCP server to answer the question.
+The LLM will select the necessary [Tools](https://modelcontextprotocol.io/docs/concepts/tools) provided by the MCP server to answer the question.
 
-Or simply use the built-in [Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided by the MCP server:
+Or you can simply use the built-in [Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided by the MCP server:
 
 - `/show-dhw-settings` to get all settings for domestic hot water preparation in table format
 - `/show-heat-curve` to show the configured heat curve as a graph
+- ... more to come soon - stay tuned! 👀
 
 ## ✍️ Integration in LLM Client
 
@@ -56,7 +63,7 @@ Or simply use the built-in [Prompts](https://modelcontextprotocol.io/docs/concep
 
 ### Manual installation
 
-Go to the settings file of your LLM Client, for instance .vscode/mcp.json for Github Copilot, and add the following configuration:
+Go to the settings file of your LLM application, for instance `.vscode/mcp.json` for Github Copilot, and add the following configuration:
 
 ```
 "emsesp": {
@@ -102,8 +109,8 @@ Then you can use the modified file in the MCP server via the environment variabl
 ## 👓 Outlook
 
 - More entities
-- Tools to set room temperature, start desinfection, enable PV surplus, ...
-- Prompts to draw heat curve, etc.
+- Tools to set room temperature, start desinfection, enable PV surplus, adapt dhw settings, ...
+- Resources providing more context on the topic
 
 ## 📄 License
 
