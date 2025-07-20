@@ -11,7 +11,7 @@
 ---
 
 <div align="center">
-  <img src="https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif" alt="Get dhw temperature and COP of preparation" />
+  <img src="https://i.ibb.co/G4qzST84/claude-desktop-dhw-cop.gif" width="672" alt="Get dhw temperature and COP of preparation" />
   <p>Get hot water temperature and COP of preparation</p>
 </div>
 
@@ -25,10 +25,10 @@
 ## 📔 Table of Contents
 
 - [About](#-about)
-- [Integration in LLM Client](#️-integration-in-llm-client)
+- [Integration in LLM Application](#️-integration-in-llm-application)
 - [Configuration](#️-configuration)
 - [Available Tools](#️-available-tools)
-- [Outlook](#outlook)
+- [Outlook](#-outlook)
 
 ## 🚀 About
 
@@ -37,10 +37,10 @@ With this **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)** s
 Then shoot your prompts like so:
 
 - _Is hot water preparation running right now?_
-- _What is the current outdoor temperature?_
-- _How warm is the domestic hot water right now?_
+- _What's the current outdoor temperature?_
+- _How warm is the domestic hot water at the moment?_
 - _How much electricity is my heat pump currently using?_
-- _What is the current COP (Coefficient of Performance) for hot water preparation?_
+- _What's the COP (Coefficient of Performance) for hot water preparation?_
 
 The LLM will select the necessary [Tools](https://modelcontextprotocol.io/docs/concepts/tools) provided by the MCP server to answer the question.
 
@@ -50,7 +50,10 @@ Or you can simply use the built-in [Prompts](https://modelcontextprotocol.io/doc
 - `/show-heat-curve` to show the configured heat curve as a graph
 - ... more to come soon - stay tuned! 👀
 
-## ✍️ Integration in LLM Client
+## ✍️ Integration in LLM Application
+
+This MCP server works with any LLM application which supports [Tools](https://modelcontextprotocol.io/clients).
+I've verified it end-to-end on the Claude Desktop App which supports easy one-click installation.
 
 ### Install in Claude Desktop App with DXT file
 
@@ -108,7 +111,7 @@ Then you can use the modified file in the MCP server via the environment variabl
 
 ## 👓 Outlook
 
-- More entities
+- More entities and prompts
 - Tools to set room temperature, start desinfection, enable PV surplus, adapt dhw settings, ...
 - Resources providing more context on the topic
 
